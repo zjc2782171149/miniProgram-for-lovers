@@ -1,0 +1,8 @@
+<view class="swiper">
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000"
+    style="background: white; height: 250px; width: 100%;">
+    <swiper-item wx:for="{{swiperList}}" wx:key="_id">
+      <image src="{{item.url}}" mode='scaleToFill' class="swiper-image" />
+    </swiper-item>
+  </swiper>
+</view>

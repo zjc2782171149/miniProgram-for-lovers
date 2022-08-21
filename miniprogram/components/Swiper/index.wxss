@@ -1,0 +1,15 @@
+/* Components/Swiper/Swiper.wxss */
+.swiper {
+  height: 500px;
+  margin-bottom: 100px;
+}
+
+.swiper-image{
+  display: block;
+  height: 100%; 
+  width: 100%;
+  position: relative;
+  background-color: darkgray;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
