@@ -84,6 +84,15 @@ Page({
     this.filterMission()
   },
 
+  // 清空搜索
+  onCancel(element) {
+    this.setData({
+      search: ''
+    })
+
+    this.filterMission()
+  },
+
   //将任务划分为：完成，未完成
   filterMission() {
     let missionList = []
@@ -114,14 +123,15 @@ Page({
   },
 
   //响应左划按钮事件逻辑
-  async slideButtonTap(element) {
+  async clickButtons(element) {
     //得到UI序号
-    const index = element.currentTarget.dataset.buttonIndex;
+    const index = element.currentTarget.dataset.buttonindex * 1;
     // 是未完成还是已完成
-    const isUpper = element.currentTarget.dataset.isUpper;
+    const isUpper = Boolean(element.currentTarget.dataset.isupper);
     //根据序号获得任务
-    const missionIndex = element.currentTarget.dataset.index
-    const mission = isUpper === true ? this.data.unfinishedMissions[missionIndex] : this.data.finishedMissions[missionIndex]
+    const missionIndex = element.currentTarget.dataset.index * 1;
+    const mission = isUpper ? this.data.unfinishedMissions[missionIndex] : this.data.finishedMissions[missionIndex];
+    console.log(index, isUpper, missionIndex, mission);
 
     await wx.cloud.callFunction({ name: 'getOpenId' }).then(async openid => {
 
@@ -178,12 +188,9 @@ Page({
   //完成任务
   async finishMission(element) {
     //根据序号获得触发切换事件的待办
-    console.log(element)
     const missionIndex = element.currentTarget.dataset.index
     const mission = this.data.unfinishedMissions[missionIndex]
-    console.log()
     await wx.cloud.callFunction({ name: 'getOpenId' }).then(async openid => {
-      console.log(mission, openid)
       if (mission._openid != openid.result) {
         //完成对方任务，奖金打入对方账号
         wx.cloud.callFunction({ name: 'editAvailable', data: { _id: mission._id, value: false, list: getApp().globalData.collectionMissionList } })

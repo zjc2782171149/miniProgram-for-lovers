@@ -17,15 +17,14 @@
 
 <view class="container" wx:if="{{allMissions.length > 0}}">
   <view class="form-group">
-    <view class="search-bar">
-      <icon class="search-icon" type="search" size="24"></icon>
-      <input class="search-input" placeholder="搜索任务" bindinput="onSearch" value="{{search}}" />
-    </view>
+    <van-search shape="round" background="#EFEFF4" value="{{ search }}" placeholder="搜索任务" show-action
+      bind:search="onSearch" />
   </view>
 
+  <van-tag plain color="pink" text-color="pink">任务右侧头像为指派任务的宝贝</van-tag>
+
   <view class="form-group_label">未完成
-    <van-icon name="new-o" size="20px" info="{{unfinishedMissions.length}}" style="margin-left: 5px;" />
-    <!-- <mp-badge content="{{unfinishedMissions.length}}" style="margin-left: 5px;" /> -->
+    <view class="badge">{{unfinishedMissions.length}}</view>
   </view>
   <view class="form-group" wx:if="{{unfinishedMissions.length > 0}}"
     style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
@@ -39,17 +38,23 @@
               <view class="mission-info">
                 <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
                 <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
-                <view class="mission-info_date">📅 {{util.cutStr(item.date, 10)}} 创建</view>
+                <view class="mission-info_date">
+                  <view>
+                    📅 {{util.cutStr(item.date, 10)}} 创建
+                  </view>
+                  <view class="date_children">
+                    需 <van-tag color="#b47bfe">{{item._openid === _openidA ? "巴库" : "库洛米"}}</van-tag> 完成
+                  </view>
+                </view>
               </view>
             </view>
             <!-- 右侧照片 -->
             <view slot="right-icon">
               <view class="mission-info_author">
-                <image style="position: absolute; width: 100%; bottom: 0;" mode="widthFix" src="Images/MissionB.png" />
-                <!-- <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidA}}"
-                  mode="widthFix" src="Images/MissionA.png" />
-                <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidB}}"
-                  mode="widthFix" src="Images/MissionB.png" /> -->
+                <image style="position: absolute; width: 100%; bottom: 0;border-radius: 50%;"
+                  wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MissionA.png" />
+                <image style="position: absolute; width: 100%; bottom: 0;border-radius: 50%;"
+                  wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MissionB.png" />
               </view>
             </view>
           </van-cell>
@@ -57,18 +62,20 @@
           <view slot="right">
             <view class="flex">
               <!-- 完成 -->
-              <view class="selectIcon markBtn"
-                bindtap="slideButtonTap" data-index="{{index}}" data-buttonIndex="0" data-isUpper="true">
+              <view class="selectIcon markBtn" bindtap="clickButtons" data-index="{{index}}" data-buttonindex="0"
+                data-isupper="true">
                 <van-icon name="success" size="25px" />
               </view>
               <!-- 收藏-星标 -->
-              <view class="selectIcon starBtn" 
-                bindtap="slideButtonTap" data-index="{{index}}" data-buttonIndex="1" data-isUpper="true">
-                <van-icon name="star-o" size="25px" />
+              <view class="selectIcon starBtn" bindtap="clickButtons" data-index="{{index}}" data-buttonindex="1"
+                data-isupper="true">
+                <van-icon wx:if="{{!item.star}}" name="star-o" size="25px" />
+                <van-icon wx:if="{{item.star}}" name="star" size="25px" />
+
               </view>
               <!-- 删除 -->
-              <view class="selectIcon removeBtn" 
-                bindtap="slideButtonTap" data-index="{{index}}" data-buttonIndex="2" data-isUpper="true">
+              <view class="selectIcon removeBtn" bindtap="clickButtons" data-index="{{index}}" data-buttonindex="2"
+                data-isupper="true">
                 <van-icon name="delete-o" size="25px" />
               </view>
             </view>
@@ -84,8 +91,7 @@
 
 
   <view class="form-group_label">已完成
-    <van-icon name="certificate" size="20px" info="{{finishedMissions.length}}" style="margin-left: 5px;" />
-    <!-- <mp-badge content="{{finishedMissions.length}}" style="margin-left: 5px;" /> -->
+    <view class="badge">{{finishedMissions.length}}</view>
   </view>
   <view class="form-group" wx:if="{{finishedMissions.length > 0}}"
     style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
@@ -99,25 +105,43 @@
             <view class="mission-info">
               <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
               <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
-              <view class="mission-info_date">📅 {{util.cutStr(item.date, 10)}} 创建</view>
+              <view class="mission-info_date">
+                <view>
+                  📅 {{util.cutStr(item.date, 10)}} 创建
+                </view>
+                <view class="date_children">
+                  <van-tag color="#b47bfe">{{item._openid !== _openidA ? "巴库" : "库洛米"}}</van-tag> 已完成
+                </view>
+              </view>
             </view>
           </view>
           <!-- 右侧照片 -->
           <view slot="right-icon">
             <view class="mission-info_author">
-              <image style="position: absolute; width: 100%; bottom: 0;" mode="widthFix" src="Images/MissionB.png" />
-              <!-- <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidA}}"
-                  mode="widthFix" src="Images/MissionA.png" />
-                <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidB}}"
-                  mode="widthFix" src="Images/MissionB.png" /> -->
+              <image style="position: absolute; width: 100%; bottom: 0;border-radius: 50%;"
+                wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MissionA.png" />
+              <image style="position: absolute; width: 100%; bottom: 0;border-radius: 50%;"
+                wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MissionB.png" />
             </view>
           </view>
         </van-cell>
 
         <view slot="right">
           <view class="flex">
-            <view wx:for="{{slideButtons}}" class="selectIcon {{item.extClass}}" wx:key="index">
-              <van-icon name="{{item.src}}" size="25px" />
+            <!-- 完成 -->
+            <view class="selectIcon markBtn" bindtap="clickButtons" data-index="{{index}}" data-buttonindex="0"
+              data-isupper="false">
+              <van-icon name="success" size="25px" />
+            </view>
+            <!-- 收藏-星标 -->
+            <view class="selectIcon starBtn" bindtap="clickButtons" data-index="{{index}}" data-buttonindex="1"
+              data-isupper="false">
+              <van-icon name="star-o" size="25px" />
+            </view>
+            <!-- 删除 -->
+            <view class="selectIcon removeBtn" bindtap="clickButtons" data-index="{{index}}" data-buttonindex="2"
+              data-isupper="false">
+              <van-icon name="delete-o" size="25px" />
             </view>
           </view>
         </view>

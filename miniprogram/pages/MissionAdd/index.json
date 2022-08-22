@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  },
   "navigationBarTitleText": "添加新任务"
 }

@@ -13,7 +13,6 @@
     <view class="form-cell">
       <view class="slide">
         <view class="title">{{userA}}的积分：{{creditA}}</view>
-        <view class="title">{{userA}}的积分：{{creditA}}</view>
       </view>
     </view>
     <view class="form-cell">

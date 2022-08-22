@@ -59,6 +59,8 @@
 }
 
 .mission-info_date {
+  display: flex;
+  justify-self: start;
   height: 15px;
   line-height: 15px;
   font-size: 10px;
@@ -71,6 +73,15 @@
   position: absolute;
   right: 7%;
   bottom: 5px;
+}
+
+.date_children {
+  margin-left: 20px;
+}
+
+.color_purple {
+  color: purple;
+  font-weight: 600;
 }
 
 .star {
@@ -142,4 +153,15 @@
   text-align: center;
   border-radius: 50%;
   margin: 15px 6px 0 0;
+}
+
+.badge {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  margin-left: 5px;
 }
