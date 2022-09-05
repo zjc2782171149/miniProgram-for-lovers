@@ -43,7 +43,7 @@
 }
 
 .mission-info_title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -68,15 +68,15 @@
 }
 
 .mission-info_author {
-  width: 70px;
+  width: 50px;
   height: 100%;
   position: absolute;
   right: 7%;
-  bottom: 5px;
+  bottom: 10px;
 }
 
 .date_children {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .color_purple {
