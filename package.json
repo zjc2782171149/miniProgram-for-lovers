@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/zjc2782171149/miniProgram-for-lovers",
   "dependencies": {
-    "@vant/weapp": "^1.10.4"
+    "@vant/weapp": "^1.10.4",
+    "dayjs": "^1.11.5"
   }
 }

@@ -1,60 +1,64 @@
 {
-  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "setting": {
-    "urlCheck": true,
-    "es6": false,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": false,
-    "coverView": true,
-    "nodeModules": true,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
+    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "packOptions": {
+        "ignore": [],
+        "include": []
     },
-    "enableEngineNative": false,
-    "useIsolateContext": true,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": true,
-    "packNpmRelationList": [
-      {
-        "packageJsonPath": "./package.json",
-        "miniprogramNpmDistDir": "./miniprogram/"
-      }
-    ],
-    "minifyWXSS": true,
-    "showES6CompileOption": false
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.14.1",
-  "appid": "wxb8a1b189b95a96c8",
-  "projectname": "zjc_with_lqy",
-  "miniprogramRoot": "miniprogram/",
-  "cloudfunctionRoot": "cloudfunctions/",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
-  "srcMiniprogramRoot": "miniprogram/",
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 4
-  },
-  "condition": {}
+    "setting": {
+        "urlCheck": true,
+        "es6": false,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": false,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "useIsolateContext": true,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": true,
+        "packNpmRelationList": [
+            {
+                "packageJsonPath": "./package.json",
+                "miniprogramNpmDistDir": "./miniprogram/"
+            }
+        ],
+        "minifyWXSS": true,
+        "showES6CompileOption": false,
+        "useStaticServer": true,
+        "disableUseStrict": false,
+        "useCompilerPlugins": false,
+        "minifyWXML": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.14.1",
+    "appid": "wxb8a1b189b95a96c8",
+    "projectname": "zjc_with_lqy",
+    "miniprogramRoot": "miniprogram/",
+    "cloudfunctionRoot": "cloudfunctions/",
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+    "srcMiniprogramRoot": "miniprogram/",
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
+    },
+    "condition": {}
 }

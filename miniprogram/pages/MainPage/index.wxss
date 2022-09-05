@@ -26,3 +26,9 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.sign {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+}

@@ -1,40 +1,31 @@
 {
-  "projectname": "zjc_with_lqy",
-  "setting": {
-    "compileHotReLoad": true
-  },
-  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "condition": {
-    "plugin": {
-      "list": []
+    "projectname": "miniProgram-for-lovers",
+    "setting": {
+        "compileHotReLoad": true
     },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/Account/index",
-          "pathName": "pages/Account/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/MainPage/index",
-          "pathName": "pages/MainPage/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/Mission/index",
-          "pathName": "pages/Mission/index",
-          "query": "",
-          "scene": null
+    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/Account/index",
+                    "pathName": "pages/Account/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/MainPage/index",
+                    "pathName": "pages/MainPage/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/Mission/index",
+                    "pathName": "pages/Mission/index",
+                    "query": "",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

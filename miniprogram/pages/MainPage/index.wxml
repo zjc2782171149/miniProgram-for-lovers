@@ -1,4 +1,5 @@
 <view style="width:100%; background: none;">
+<van-toast id="van-toast" />
   <swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000"
     style="background: white; height: 250px; width: 100%;">
     <swiper-item wx:for="{{SwiperList}}" wx:key="_id">
@@ -53,4 +54,8 @@
     </view>
   </view>
 
+</view>
+
+<view class="sign">
+    <van-button color="pink" round size="small" bindtap="dailySign" wx:if="{{!isSign}}">签到</van-button>
 </view>

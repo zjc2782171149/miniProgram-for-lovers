@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "Swiper": "/components/Swiper/index"
+    "Swiper": "/components/Swiper/index",
+    "van-toast": "@vant/weapp/toast/index"
   }
 }
